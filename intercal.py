@@ -1,8 +1,6 @@
 #INTERCAL code creator 9000!
 
 
-f = open("output.i","w")
-
 def binFlip(num):   #Function converts to backwards binary and back to decimal
     b1 = bin(num)[2:]
     while len(b1) < 8:
@@ -17,6 +15,7 @@ def binFlip(num):   #Function converts to backwards binary and back to decimal
 
 def generate(text):
     # Create INTERCAL code that prints out text
+    f = open("output.i","w")
     text = text + '\n'
     f.write("DO ,1 <- #%d \n" %len(text))
     s_index = 0     #This is the position in the string called text
@@ -45,6 +44,8 @@ def generate_from_file(fname):
     text = fin.read()
     fin.close()
     text = text + '\n'
+
+    f = open("output.i","w")
     f.write("DO ,1 <- #%d \n" %len(text))
     s_index = 0     #This is the position in the string called text
     OutPos = [0]      #This is a list of the positions of the output head
